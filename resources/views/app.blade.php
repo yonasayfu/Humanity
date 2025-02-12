@@ -17,5 +17,13 @@
     </head>
     <body class="font-sans antialiased">
         @inertia 
+        <button
+    type="button"
+    class="filament-sidebar-toggle-button"
+    onclick="document.querySelector('.filament-sidebar').classList.toggle('hidden')"
+>
+    ☰ Toggle Sidebar
+</button>
+
     </body>
 </html>

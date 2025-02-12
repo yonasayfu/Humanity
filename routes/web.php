@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\SupporterController;
+use App\Http\Controllers\BankFormController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -27,5 +28,5 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('supporters', SupporterController::class)
     ->middleware(['auth']); // Protect admin routes
-
+    Route::resource('bankforms', BankFormController::class);
 require __DIR__.'/auth.php';

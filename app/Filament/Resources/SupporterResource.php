@@ -22,6 +22,10 @@ class SupporterResource extends Resource
     protected static ?string $model = Supporter::class;
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
     protected static ?string $navigationLabel = 'Supporters';
+    protected static ?string $navigationGroup = 'Supporters Management';
+   
+    //protected static ?string $navigationLabel = 'Supporters';
+    protected static ?int $navigationSort = 1; // Controls order in sidebar
 
     public static function form(Forms\Form $form): Forms\Form
     {
@@ -49,16 +53,25 @@ class SupporterResource extends Resource
 
     public static function table(Tables\Table $table): Tables\Table
     {
-        return $table
-            ->columns([
-                TextColumn::make('name')->sortable()->searchable(),
-                TextColumn::make('type')->sortable(),
-                TextColumn::make('phone_number'),
-                TextColumn::make('email'),
-                TextColumn::make('contribution_amount')->sortable(),
-                TextColumn::make('created_at')->label('Joined')->dateTime(),
-            ])
-            ->filters([
+        // return $table
+        //     ->columns([
+        //         TextColumn::make('name')->sortable()->searchable(),
+        //         TextColumn::make('type')->sortable(),
+        //         TextColumn::make('phone_number'),
+        //         TextColumn::make('email'),
+        //         TextColumn::make('contribution_amount')->sortable(),
+        //         TextColumn::make('created_at')->label('Joined')->dateTime(),
+        //     ])
+            return $table
+        ->query(\App\Models\Supporter::query()) // Ensure this is fetching data
+        ->columns([
+            TextColumn::make('name')->sortable()->searchable(),
+            TextColumn::make('type')->sortable(),
+            TextColumn::make('phone_number'),
+            TextColumn::make('email'),
+            TextColumn::make('contribution_amount')->sortable(),
+            TextColumn::make('created_at')->label('Joined')->dateTime(),
+        ])->filters([
                 SelectFilter::make('type')
                     ->options([
                         'government' => 'Government',
