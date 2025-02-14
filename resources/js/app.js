@@ -25,3 +25,18 @@ createInertiaApp({
         color: '#4B5563',
     },
 });
+document.addEventListener('print-donation-agreement', function () {
+    window.print();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    let sidebar = document.querySelector("aside");
+    let content = document.querySelector("main");
+    let toggleBtn = document.getElementById("sidebarToggle");
+
+    toggleBtn.addEventListener("click", function () {
+        sidebar.classList.toggle("hidden"); // Hide/show sidebar
+        content.classList.toggle("ml-0"); // Adjust content width
+    });
+});
+

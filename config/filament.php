@@ -30,11 +30,7 @@ return [
         // ],
 
     ],
-    'layout' => [
-        'sidebar' => [
-            'collapsed' => false, // false means expanded by default
-            'toggleable' => true, // true allows the sidebar to be toggled
-        ]],
+
     /*
     |--------------------------------------------------------------------------
     | Default Filesystem Disk
@@ -95,5 +91,12 @@ return [
             'path' => 'admin',
         ],
     ],
+    'layout' => [
+        'sidebar' => [
+            'collapsed' => false, // false means expanded by default
+            'toggleable' => true, // true allows the sidebar to be toggled
+        ]],
 
 ];
+
+
